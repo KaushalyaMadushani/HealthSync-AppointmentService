@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/availability")
+@RequestMapping("/api/schedule")
 public class AvailabilityController {
 
     private final AvailabilityService availabilityService;
@@ -18,13 +18,13 @@ public class AvailabilityController {
         this.availabilityService = availabilityService;
     }
 
-    @PostMapping
+    @PostMapping("/availability")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Availability> createAvailability(@RequestBody Availability availability){
         return ResponseEntity.ok(availabilityService.createAvailability(availability));
     }
 
-    @GetMapping("/{doctorId}")
+    @GetMapping("/availability/{doctorId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Availability>> getAvailabilities(@PathVariable String doctorId){
         return ResponseEntity.ok(availabilityService.getAvailabilitiesByDoctorId(doctorId));
