@@ -1,15 +1,10 @@
 package com.healthsync.appointment.service;
 
-import com.healthsync.appointment.exception.AppointmentException;
 import com.healthsync.appointment.model.Appointment;
-//import com.healthsync.appointment.model.Availability;
 import com.healthsync.appointment.repository.AppointmentRepository;
-
-//import com.healthsync.appointment.repository.AvailabilityRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AppointmentService {
@@ -70,6 +65,10 @@ public class AppointmentService {
 
     public List<Appointment> getAppointmentsByDoctorId(String doctorId){
         return appointmentRepository.findByDoctorId(doctorId);
+    }
+
+    public Optional<Appointment> getAppointmentById(String id){
+        return appointmentRepository.findById(id);
     }
 
     public void deleteAppointment(String id){
