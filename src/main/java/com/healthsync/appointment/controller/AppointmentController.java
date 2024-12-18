@@ -1,7 +1,6 @@
 package com.healthsync.appointment.controller;
 
 import com.healthsync.appointment.model.Appointment;
-//import com.healthsync.appointment.model.Availability;
 import com.healthsync.appointment.service.AppointmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +18,6 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    //    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public ResponseEntity<Appointment> bookAppointment(@RequestBody Appointment appointment){
-//        return ResponseEntity.ok(appointmentService.bookAppointment(appointment));
-//    }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment){
