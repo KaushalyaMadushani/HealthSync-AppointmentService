@@ -1,7 +1,7 @@
 package com.healthsync.appointment.repository;
 
 import com.healthsync.appointment.model.Appointment;
-import com.healthsync.appointment.model.Availability;
+//import com.healthsync.appointment.model.Availability;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

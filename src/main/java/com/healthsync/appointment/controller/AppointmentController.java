@@ -1,7 +1,7 @@
 package com.healthsync.appointment.controller;
 
 import com.healthsync.appointment.model.Appointment;
-import com.healthsync.appointment.model.Availability;
+//import com.healthsync.appointment.model.Availability;
 import com.healthsync.appointment.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,27 +11,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/api/appointment")
-@RequestMapping("/api")
+@RequestMapping("/api/appointment")
+//@RequestMapping("/api")
 
 public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
 
-    @PostMapping("/appointment")
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public ResponseEntity<Appointment> bookAppointment(@RequestBody Appointment appointment){
+//        return ResponseEntity.ok(appointmentService.bookAppointment(appointment));
+//    }
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Appointment> bookAppointment(@RequestBody Appointment appointment){
-        return ResponseEntity.ok(appointmentService.bookAppointment(appointment));
+    public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment){
+        return ResponseEntity.ok(appointmentService.createAppointment(appointment));
     }
 
-    @GetMapping("/appointment/{doctorId}")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Appointment> getAllAppointments(){
+        return appointmentService.getAllAppointments();
+    }
+
+    @GetMapping("/{doctorId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Appointment>> getAppointments(@PathVariable String doctorId){
         return ResponseEntity.ok(appointmentService.getAppointmentsByDoctorId(doctorId));
     }
 
-    @DeleteMapping("/appointment/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAppointment(@PathVariable String id){
         appointmentService.deleteAppointment(id);
         return ResponseEntity.noContent().build();
