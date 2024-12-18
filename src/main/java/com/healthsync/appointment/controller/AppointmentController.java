@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/schedule")
+//@RequestMapping("/api/appointment")
+@RequestMapping("/api")
+
 public class AppointmentController {
 
     @Autowired
@@ -34,6 +36,4 @@ public class AppointmentController {
         appointmentService.deleteAppointment(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }

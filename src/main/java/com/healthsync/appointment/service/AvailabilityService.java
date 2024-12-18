@@ -19,6 +19,7 @@ public class AvailabilityService {
     public Availability createAvailability(Availability availability){
         //check for overlapping availability slots
         List<Availability> existingAvailabilities = availabilityRepository.findByDoctorId(availability.getDoctorId());
+
         for (Availability existing : existingAvailabilities){
             if (availability.getStartTime().isBefore(existing.getEndTime()) &&
                     availability.getEndTime().isAfter(existing.getStartTime())){
@@ -26,10 +27,12 @@ public class AvailabilityService {
             }
         }
         return availabilityRepository.save(availability);
+
     }
 
     public List<Availability> getAvailabilitiesByDoctorId(String doctorId){
         return availabilityRepository.findByDoctorId(doctorId);
+
     }
 
 

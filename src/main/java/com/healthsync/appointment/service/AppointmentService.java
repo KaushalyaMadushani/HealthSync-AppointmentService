@@ -4,6 +4,7 @@ import com.healthsync.appointment.exception.AppointmentException;
 import com.healthsync.appointment.model.Appointment;
 import com.healthsync.appointment.model.Availability;
 import com.healthsync.appointment.repository.AppointmentRepository;
+
 import com.healthsync.appointment.repository.AvailabilityRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
