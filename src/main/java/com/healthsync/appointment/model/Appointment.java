@@ -21,7 +21,7 @@ public class Appointment
     private String doctorId;
     private String patientId;
     private LocalDateTime appointmentTime;
-    private String symptoms;
+    private String symptomsConditions;
 
     public String getAppointmentId() {
         return appointmentId;
@@ -55,11 +55,11 @@ public class Appointment
         this.appointmentTime = appointmentTime;
     }
 
-    public String getSymptoms() {
-        return symptoms;
+    public String getSymptomsConditions() {
+        return symptomsConditions;
     }
 
-    public void setSymptoms(String symptoms) {
-        this.symptoms = symptoms;
+    public void setSymptomsConditions(String symptomsConditions) {
+        this.symptomsConditions = symptomsConditions;
     }
 }
