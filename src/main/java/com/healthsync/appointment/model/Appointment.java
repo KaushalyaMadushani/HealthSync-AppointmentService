@@ -19,8 +19,9 @@ public class Appointment
     @Id
     private String appointmentId;
     private String doctorId;
-    private String patientName;
+    private String patientId;
     private LocalDateTime appointmentTime;
+    private String symptoms;
 
     public String getAppointmentId() {
         return appointmentId;
@@ -38,12 +39,12 @@ public class Appointment
         this.doctorId = doctorId;
     }
 
-    public String getPatientName() {
-        return patientName;
+    public String getPatientId() {
+        return patientId;
     }
 
     public void setPatientName(String patientName) {
-        this.patientName = patientName;
+        this.patientId = patientId;
     }
 
     public LocalDateTime getAppointmentTime() {
@@ -52,5 +53,13 @@ public class Appointment
 
     public void setAppointmentTime(LocalDateTime appointmentTime) {
         this.appointmentTime = appointmentTime;
+    }
+
+    public String getSymptoms() {
+        return symptoms;
+    }
+
+    public void setSymptoms(String symptoms) {
+        this.symptoms = symptoms;
     }
 }
